@@ -6,7 +6,7 @@ const program = require('commander');
 const { prompt } = require('inquirer');
 
 // Импортируем описанные нами ранее методы
-const { convert } = require('./functionality');
+const { convert, reverse } = require('./functionality');
 
 program.version('0.0.1').description("Iana's custom CLI");
 
@@ -34,10 +34,30 @@ program
   .action(() => {
     prompt(convertQuestions).then(answers => convert(answers));
   });
-//   .action(input => {
-//     const [inputCsvFileName, outputJsonFileName] = input.args;
-//     convert(inputCsvFileName, outputJsonFileName);
-//   });
+
+const reverseQuestions = [
+  {
+    type: 'input',
+    name: 'inputString',
+    message: 'Please input the text to reverse:',
+  },
+  {
+    type: 'output',
+    name: 'desiredReversedLength',
+    message:
+      'Please input the desired length of the reversed text. If left empty, the text will be reversed in full:',
+  },
+];
+
+program
+  .command('reverse')
+  .alias('r')
+  .description(
+    'Reverse the input text. If desired, the reversed text length may be shortened.'
+  )
+  .action(() => {
+    prompt(reverseQuestions).then(answers => reverse(answers));
+  });
 
 // Передаем аргументы в командную строку
 program.parse(process.argv);

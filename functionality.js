@@ -12,7 +12,6 @@ const convert = convertQuestions => {
     'input',
     `${inputCsvFileName}.csv`
   );
-
   const outputJsonFilePath = path.join(
     __dirname,
     'output',
@@ -28,12 +27,29 @@ const convert = convertQuestions => {
         'utf8'
       );
       console.log(
-        `The input file "${inputCsvFileName}.csv" has been successfully converted to "${outputJsonFileName}.json". Please check the "output" folder. `
+        `The input file "${inputCsvFileName}.csv" has been successfully converted to "${outputJsonFileName}.json". Please check the "output" folder.`
       );
     });
+};
+
+const reverse = reverseQuestions => {
+  let { inputString, desiredReversedLength } = reverseQuestions;
+  if (desiredReversedLength.length === 0) {
+    desiredReversedLength = inputString.length;
+  }
+
+  const reversedArray = inputString.split('').reverse();
+
+  if (desiredReversedLength !== inputString.length) {
+    reversedArray.length = desiredReversedLength;
+  }
+
+  const reversedString = reversedArray.join('');
+  console.log(`${reversedString}`);
 };
 
 // Export All Methods
 module.exports = {
   convert,
+  reverse,
 };
