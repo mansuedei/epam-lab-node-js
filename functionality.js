@@ -6,7 +6,6 @@ const fs = require('fs');
 // Описываем методы
 
 const convert = convertQuestions => {
-  console.log(convertQuestions);
   const { inputCsvFileName, outputJsonFileName } = convertQuestions;
   const inputCsvFilePath = path.join(
     __dirname,
@@ -34,9 +33,6 @@ const convert = convertQuestions => {
         `The input file "${inputCsvFileName}.csv" has been successfully converted to "${outputJsonFileName}.json". Please check the "output" folder. `
       );
     });
-  //   console.log(
-  //     `Test! Here's your inputCsvFileName: "${inputCsvFileName},"outputJsonFileName "${outputJsonFileName}" and current directory" "${__dirname}" printed!`
-  //   );
 };
 
 // Export All Methods
