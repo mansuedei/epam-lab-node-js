@@ -12,14 +12,12 @@ const convert = convertQuestions => {
     'input',
     `${inputCsvFileName}.csv`
   );
-  //   console.log(inputCsvFilePath);
 
   const outputJsonFilePath = path.join(
     __dirname,
     'output',
     `${outputJsonFileName}.json`
   );
-  //   console.log(outputJsonFilePath);
 
   csvToJson()
     .fromFile(inputCsvFilePath)
