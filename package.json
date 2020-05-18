@@ -1,8 +1,10 @@
 {
-  "name": "epam-lab-node",
+  "name": "iana-node",
   "version": "1.0.0",
   "description": "EPAM lab node-js learning project",
-  "main": "index.js",
+  "main": "commands.js",
+  "preferGlobal": true,
+  "bin": "./commands.js",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -23,5 +25,10 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "nodemon": "^2.0.3",
     "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "commander": "^5.1.0",
+    "csvtojson": "^2.0.10",
+    "inquirer": "^7.1.0"
   }
 }
