@@ -1,3 +1,5 @@
+//---- POKEMON ----
+
 //Create one
 POST http://localhost:3000/pokemon
 Content-Type: application/json
@@ -41,3 +43,26 @@ Content-Type: application/json
 ###
 // Delete one. Please change the ID part accordingly
 DELETE http://localhost:3000/pokemon/5ed3f3e9b69c5d604d8ab823
+
+
+
+//---- AUTHENTICATION ----
+
+###
+//Create one
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+	"name": "Iana",
+	"email": "mansuedei@gmail.com",
+	"password": "qwerty"
+}
+
+###
+// Read (getting all)
+GET http://localhost:3000/users
+
+###
+// Delete one. Please change the ID part accordingly
+DELETE http://localhost:3000/5ed422c1f9c02b7b753c2d54
