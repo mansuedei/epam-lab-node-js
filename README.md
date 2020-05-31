@@ -27,6 +27,10 @@ Run `npm link` in the project folder. Then, open the console in any folder and r
 
 Run `npm run devStart` in the project folder. To run the API commands it is advised to install the 'REST Client' VSCode extension. Then you can run commands directly from the route.rest file.
 
+## HW4: How to register and login as a new user
+
+Start an express server as described above. You can use the authentication API both via 'REST Client' and in the interface. To use the latter, go to the [registration page](http://localhost:3000/login).
+
 ## Further help
 
 To get more help on the Node.js use `node -h` or go check out the [Introduction to Node.js](https://nodejs.dev/).
