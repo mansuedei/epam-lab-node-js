@@ -10,6 +10,11 @@ Iana Stepanova
 
 This is a simple project designed for learning and getting acquainted with Node.js features.
 
+## How to deploy the app
+
+Clone the app files in the folder of your choice by running `git clone git@github.com:mansuedei/epam-lab-node-js.git`.
+Then, run `npm install` to install all dependencies needed for the app to work.
+
 ## HW0: How to run a test web server
 
 Run `node index.js` for a web server. Navigate to `http://localhost:3000/`.
@@ -20,7 +25,7 @@ Run `npm link` in the project folder. Then, open the console in any folder and r
 
 ## HW2-5: How to start an express server
 
-Run `npm run devStart` in the project folder.
+Run `npm run devStart` in the project folder. To run the API commands
 
 ## Further help
 
