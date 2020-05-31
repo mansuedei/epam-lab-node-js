@@ -67,8 +67,17 @@ router.get('/:id', getPokemon, (req, res) => {
 });
 
 // Read (getting one by name)
-router.get('/:id', getPokemon, (req, res) => {
-  res.json(res.pokemon);
+router.get('/', async (req, res) => {
+  let pokemon;
+  try {
+    pokemon = await Pokemon.findOne({ name: req.body.name });
+    if (pokemon == null) {
+      return res.status(404).json({ message: 'Cannot find this pokemon' });
+    }
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+  res.json(pokemon);
 });
 
 // Update one

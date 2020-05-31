@@ -17,8 +17,17 @@ GET http://localhost:3000/pokemon
 GET http://localhost:3000/pokemon/caught
 
 ###
-// Read (getting one). Please change the ID part accordingly
+// Read (getting one by ID). Please change the ID part accordingly
 GET http://localhost:3000/pokemon/5ec2dc69e2fb6c19d1ecc8f8
+
+###
+// Read (getting one by name). Please change the name in the request payload accordingly
+GET http://localhost:3000/pokemon
+Content-Type: application/json
+
+{
+	"name": "pikachu"
+}
 
 ###
 // Update one. Please change the ID part accordingly
