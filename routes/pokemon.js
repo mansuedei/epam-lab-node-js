@@ -58,10 +58,15 @@ router.get('/caught', async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-  res.pokemon = pokemon;
+  res.json(pokemon);
 });
 
-// Read (getting one)
+// Read (getting one by ID)
+router.get('/:id', getPokemon, (req, res) => {
+  res.json(res.pokemon);
+});
+
+// Read (getting one by name)
 router.get('/:id', getPokemon, (req, res) => {
   res.json(res.pokemon);
 });

@@ -1,3 +1,4 @@
+//Create one
 POST http://localhost:3000/pokemon
 Content-Type: application/json
 
@@ -8,20 +9,20 @@ Content-Type: application/json
 }
 
 ###
-
+// Read (getting all)
 GET http://localhost:3000/pokemon
 
 ###
-
+// Read (getting only caught Pokemon)
 GET http://localhost:3000/pokemon/caught
 
 ###
-
+// Read (getting one). Please change the ID part accordingly
 GET http://localhost:3000/pokemon/5ec2dc69e2fb6c19d1ecc8f8
 
 ###
-
-PATCH http://localhost:3000/pokemon/5ec2e3274400ee27ee6ca3e9
+// Update one. Please change the ID part accordingly
+PATCH http://localhost:3000/pokemon/5ed3f96167e4021568244e9d
 Content-Type: application/json
 
 {
@@ -29,5 +30,5 @@ Content-Type: application/json
 }
 
 ###
-
+// Delete one. Please change the ID part accordingly
 DELETE http://localhost:3000/pokemon/5ed3f3e9b69c5d604d8ab823
