@@ -25,7 +25,7 @@ mongoose
       if (pokemonArray.length < 1) {
         Pokemon.insertMany(defaultPokemonData)
           .then(() =>
-            console.log('No Pokemon found. Default Pokemon data was addaded')
+            console.log('No Pokemon found. Default Pokemon data was added')
           )
           .catch(error => console.log(error.message));
       }
