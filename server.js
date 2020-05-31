@@ -5,27 +5,15 @@ const mongoose = require('mongoose');
 const Pokemon = require('./models/pokemon-model');
 const defaultPokemonData = require('./data/default-pokemon-data');
 const pokemonRouter = require('./routes/pokemon');
+const authenticationRouter = require('./routes/authentication');
 
 const db = mongoose.connection;
 const app = express();
 
 app.use(express.json());
 
+app.use('/', authenticationRouter);
 app.use('/pokemon', pokemonRouter);
-
-app.set('view-engine', 'ejs');
-
-app.get('/', (req, res) => {
-  res.render('index.ejs', { name: 'Iana' });
-});
-
-app.get('/login', (req, res) => {
-  res.render('login.ejs');
-});
-
-app.get('/register', (req, res) => {
-  res.render('register.ejs');
-});
 
 app.listen(3000, () => console.log('Server Started'));
 
