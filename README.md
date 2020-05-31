@@ -25,7 +25,7 @@ Run `npm link` in the project folder. Then, open the console in any folder and r
 
 ## HW2-5: How to start an express server
 
-Run `npm run devStart` in the project folder. To run the API commands
+Run `npm run devStart` in the project folder. To run the API commands it is advised to install the 'REST Client' VSCode extension. Then you can run commands directly from the route.rest file.
 
 ## Further help
 
