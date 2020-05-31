@@ -9,14 +9,14 @@ const pokemonSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  damage: {
+    type: Number,
+    required: false,
+  },
   caught: {
     type: Boolean,
     required: true,
     default: false,
-  },
-  damage: {
-    type: Number,
-    required: false,
   },
 });
 

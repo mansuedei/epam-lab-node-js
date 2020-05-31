@@ -26,4 +26,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/pokemon/5ec2e45b5765ab2b0cd9f353
+DELETE http://localhost:3000/pokemon/5ed3dd06c453575b354dc3fe
