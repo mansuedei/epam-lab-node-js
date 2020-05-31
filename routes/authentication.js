@@ -38,7 +38,7 @@ async function getUser(req, res, next) {
   next();
 }
 
-// Create one
+// Create one (registration)
 authentication.post('/register', async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);

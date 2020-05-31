@@ -49,7 +49,7 @@ DELETE http://localhost:3000/pokemon/5ed3f3e9b69c5d604d8ab823
 //---- AUTHENTICATION ----
 
 ###
-//Create one
+//Create one (registration)
 POST http://localhost:3000/register
 Content-Type: application/json
 

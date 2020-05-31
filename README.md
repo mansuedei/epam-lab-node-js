@@ -29,7 +29,7 @@ Run `npm run devStart` in the project folder. To run the API commands it is advi
 
 ## HW4: How to register and login as a new user
 
-Start an express server as described above. You can use the authentication API both via 'REST Client' and in the interface. To use the latter, go to the [registration page](http://localhost:3000/login).
+Start an express server as described above. You can use the authentication API both via 'REST Client' and in the interface. To use the latter, go to the [registration page](http://localhost:3000/register).
 
 ## Further help
 
