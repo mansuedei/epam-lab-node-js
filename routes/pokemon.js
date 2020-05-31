@@ -46,6 +46,21 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Read (getting only caught Pokemon)
+router.get('/caught', async (req, res) => {
+  let pokemon;
+  try {
+    pokemon = await Pokemon.find({ caught: true });
+
+    if (pokemon.length === 0) {
+      return res.status(404).json({ message: 'There are no caught Pokemon' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+  res.pokemon = pokemon;
+});
+
 // Read (getting one)
 router.get('/:id', getPokemon, (req, res) => {
   res.json(res.pokemon);
