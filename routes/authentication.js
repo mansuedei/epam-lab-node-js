@@ -40,12 +40,6 @@ authentication.get('/', (req, res) => {
   res.render('index.ejs');
 });
 
-authentication.post('/', (req, res) => {
-  const { name } = req.body;
-  const token = jwt.sign({ name: name }, 'privateKey', { expiresIn: '60s' });
-  res.send(token);
-});
-
 authentication.get('/login', (req, res) => {
   res.render('login.ejs');
 });
