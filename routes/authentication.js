@@ -1,27 +1,64 @@
+require('dotenv').config();
+
 const express = require('express');
 const bcrypt = require('bcrypt');
-// const initializePassport = require('');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
 const Users = require('../models/users-model');
+const initializePassport = require('../passport-config');
+
+initializePassport(
+  passport,
+  searchedEmail => {
+    const savedEmail = Users.findOne({ email: searchedEmail });
+    return searchedEmail === savedEmail;
+  },
+  searchedID => {
+    const savedID = Users.findOne({ id: searchedID });
+    return searchedID === savedID;
+  }
+);
 
 const authentication = express();
-const localUsersStorage = [];
 
 authentication.set('view-engine', 'ejs');
 authentication.use(express.urlencoded({ extended: false }));
+authentication.use(flash());
+authentication.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+authentication.use(passport.initialize());
+authentication.use(passport.session());
 
 authentication.get('/', (req, res) => {
-  res.render('index.ejs', { name: 'Iana' });
+  res.render('index.ejs');
 });
 
 authentication.get('/login', (req, res) => {
   res.render('login.ejs');
 });
 
-authentication.post('/login', (req, res) => {});
-
 authentication.get('/register', (req, res) => {
   res.render('register.ejs');
 });
+
+authentication.get('/home', (req, res) => {
+  res.render('home.ejs');
+});
+
+authentication.post(
+  '/login',
+  passport.authenticate('local', {
+    successRedirect: '/home',
+    failureRedirect: '/login',
+    failureFlash: true,
+  })
+);
 
 // Middleware
 async function getUser(req, res, next) {
