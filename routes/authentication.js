@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
+const jwt = require('jsonwebtoken');
 const Users = require('../models/users-model');
 const initializePassport = require('../passport-config');
 
@@ -37,6 +38,12 @@ authentication.use(passport.session());
 
 authentication.get('/', (req, res) => {
   res.render('index.ejs');
+});
+
+authentication.post('/', (req, res) => {
+  const { name } = req.body;
+  const token = jwt.sign({ name: name }, 'privateKey', { expiresIn: '60s' });
+  res.send(token);
 });
 
 authentication.get('/login', (req, res) => {

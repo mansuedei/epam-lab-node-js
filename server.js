@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
+const passport = require('passport');
 const Pokemon = require('./models/pokemon-model');
 const defaultPokemonData = require('./data/default-pokemon-data');
 const pokemonRouter = require('./routes/pokemon');
@@ -12,8 +13,16 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/', authenticationRouter);
-app.use('/pokemon', pokemonRouter);
+app.use(
+  '/',
+  authenticationRouter,
+  passport.authenticate('local', { session: false })
+);
+app.use(
+  '/pokemon',
+  pokemonRouter,
+  passport.authenticate('bearer', { session: false })
+);
 
 app.listen(3000, () => console.log('Server Started'));
 
